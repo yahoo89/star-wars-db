@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import SwapiService from "../../services/swapi-service"
+import ErrorButton from "../ErrorButton/ErrorButton"
 import Spinner from "../Spinner/Spinner"
 
 import './PersonDetails.css'
@@ -98,6 +99,7 @@ const PeopleDetailsView = ({ personDetails }) => {
             <span>{eyeColor}</span>
           </li>
         </ul>
+        <ErrorButton />
       </div>
     </>
   )
