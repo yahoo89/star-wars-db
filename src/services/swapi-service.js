@@ -10,10 +10,10 @@ export default class SwapiService {
     return await res.json()
   }
 
-  async getAllPeople() {
-    const res = await this.getResource('/people')
+  getAllPeople = async () => {
+    const res = await this.getResource(`/people/`)
     return res.results.map(this._transformPerson)
-  }
+  };
 
   async getPersone(id) {
     const person = await this.getResource(`/people/${id}/`)
@@ -45,7 +45,7 @@ export default class SwapiService {
     return item.url.match(idRegExp)[1]
   }
 
-  _transformPlanet(planet) {
+  _transformPlanet = (planet) => {
     return {
       id: this._extractId(planet),
       name: planet.name,
