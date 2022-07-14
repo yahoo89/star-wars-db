@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import SwapiService from "../../services/swapi-service"
 import ItemList from "../ItemList/ItemList"
-import PersonDetails from "../PersonDetails/PersonDetails"
+import PersonDetails from "../ItemDetails/ItemDetails"
 import Row from "../Row/Row"
 import ErrorBoundry from "../ErrorBoundry/ErrorBoundry"
 
