@@ -3,7 +3,8 @@ import React, { Component } from "react"
 import Header from '../Header/Header'
 import RandomPlanet from '../RandomPlanet/RandomPlanet'
 import ItemList from '../ItemList/ItemList'
-import ItemDetails, { Record } from '../ItemDetails/ItemDetails'
+import ItemDetails from '../ItemDetails/ItemDetails'
+import Record from '../ItemDetails/Record/Record'
 import PeoplePage from "../PeoplePage/PeoplePage"
 import SwapiService from "../../services/swapi-service"
 import Row from "../Row/Row"

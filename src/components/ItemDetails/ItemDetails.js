@@ -1,22 +1,9 @@
 import React, { Component } from "react"
 import SwapiService from "../../services/swapi-service"
-import ErrorButton from "../ErrorButton/ErrorButton"
 import Spinner from "../Spinner/Spinner"
+import ItemDetailsView from "./ItemDetailsView/ItemDetailsView"
 
 import './ItemDetails.css'
-
-const Record = ({ item, field, label }) => {
-  return (
-    <li className="list-group-item">
-      <span className="term">{label}</span>
-      <span>{item[field]}</span>
-    </li>
-  )
-}
-
-export {
-  Record
-}
 
 export default class ItemDetails extends Component {
 
@@ -72,7 +59,7 @@ export default class ItemDetails extends Component {
     })
     const content =
       !loading
-        ? <PeopleDetailsView
+        ? <ItemDetailsView
           itemDetails={item}
           imageUrl={image}
           childrenProps={childrens}
@@ -92,30 +79,3 @@ export default class ItemDetails extends Component {
     )
   }
 }
-
-const PeopleDetailsView = ({ itemDetails, imageUrl, childrenProps }) => {
-  const {
-    //id,
-    name,
-    gender,
-    birthDate,
-    eyeColor
-  } = itemDetails;
-
-  return (
-    <>
-      <img
-        className="item-image"
-        src={imageUrl}
-        alt={name}
-      />
-      <div className="card-body">
-        <h4>{name}</h4>
-        <ul className="list-group list-group-flush">
-          {childrenProps}
-        </ul>
-        <ErrorButton />
-      </div>
-    </>
-  )
-} 
