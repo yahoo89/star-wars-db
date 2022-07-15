@@ -9,6 +9,15 @@ import PeoplePage from "../PeoplePage/PeoplePage"
 import SwapiService from "../../services/swapi-service"
 import Row from "../Row/Row"
 
+import {
+  PersonDetails,
+  PlanetDetails,
+  StarshipDetails,
+  PersonList,
+  PlanetList,
+  StarshipList
+} from '../sw-components'
+
 import './App.css'
 
 export default class App extends Component {
@@ -57,10 +66,20 @@ export default class App extends Component {
         <Header />
         {/* <RandomPlanet /> */}
 
-        <Row
+        {/* <Row
           left={personDetails}
           right={starshipDetails}
-        />
+        /> */}
+
+        <PersonDetails itemId={11} />
+        <PlanetDetails itemId={5} />
+        <StarshipDetails itemId={5} />
+
+        <PersonList />
+
+        <PlanetList />
+
+        <StarshipList />
 
       </div>
     )

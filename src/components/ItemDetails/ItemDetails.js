@@ -5,6 +5,7 @@ import ItemDetailsView from "./ItemDetailsView/ItemDetailsView"
 
 import './ItemDetails.css'
 
+
 export default class ItemDetails extends Component {
 
   swapiService = new SwapiService()
