@@ -16,7 +16,7 @@ export default class SwapiService {
     return res.results.map(this._transformPerson)
   };
 
-  getPersone = async (id) => {
+  getPerson = async (id) => {
     const person = await this.getResource(`/people/${id}/`)
     return this._transformPerson(person)
   }
@@ -41,7 +41,7 @@ export default class SwapiService {
     return this._transformStarship(starship)
   }
 
-  getPersoneImage = ({ id }) => {
+  getPersonImage = ({ id }) => {
     return `${this._imageBase}/characters/${id}.jpg`
   }
 

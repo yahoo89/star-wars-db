@@ -7,6 +7,7 @@ import Header from '../Header/Header'
 //import Record from '../ItemDetails/Record/Record'
 //import PeoplePage from "../PeoplePage/PeoplePage"
 import SwapiService from "../../services/swapi-service"
+import DummySwapiService from "../../services/DummySwapiService"
 //import Row from "../Row/Row"
 
 import { SwapiServiceProvider } from "../swapi-service-context/swapi-service-context"
@@ -24,11 +25,20 @@ import './App.css'
 
 export default class App extends Component {
 
-  swapiService = new SwapiService()
-
   state = {
     showRandomPlanet: true,
+    swapiService: new DummySwapiService()
   }
+
+  onServiceChange = () => [
+    this.setState(({ swapiService }) => {
+      const Service = swapiService instanceof SwapiService
+        ? DummySwapiService : SwapiService
+      return {
+        swapiService: new Service()
+      }
+    })
+  ]
 
   toggleRandomPlanet = () => {
     this.setState((state) => {
@@ -41,9 +51,9 @@ export default class App extends Component {
   render() {
 
     return (
-      <SwapiServiceProvider value={this.swapiService}>
+      <SwapiServiceProvider value={this.state.swapiService}>
         <div className="app-container">
-          <Header />
+          <Header onServiceChange={this.onServiceChange} />
 
           <PersonDetails itemId={11} />
           <PlanetDetails itemId={5} />
