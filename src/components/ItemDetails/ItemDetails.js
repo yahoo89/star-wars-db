@@ -31,7 +31,7 @@ export default class ItemDetails extends Component {
 
     this.setState({
       loading: true
-    });
+    })
 
     if (!itemId) {
       return
