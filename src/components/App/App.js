@@ -1,33 +1,19 @@
 import React, { Component } from "react"
 
 import Header from '../Header/Header'
-//import RandomPlanet from '../RandomPlanet/RandomPlanet'
-//import ItemList from '../ItemList/ItemList'
-//import ItemDetails from '../ItemDetails/ItemDetails'
-//import Record from '../ItemDetails/Record/Record'
-//import PeoplePage from "../PeoplePage/PeoplePage"
+import RandomPlanet from '../RandomPlanet/RandomPlanet'
 import SwapiService from "../../services/swapi-service"
 import DummySwapiService from "../../services/DummySwapiService"
-//import Row from "../Row/Row"
+import { PeoplePage, StarshipPage, PlanetPage } from "../pages"
 
 import { SwapiServiceProvider } from "../swapi-service-context/swapi-service-context"
-
-import {
-  PersonDetails,
-  PlanetDetails,
-  StarshipDetails,
-  PersonList,
-  PlanetList,
-  StarshipList
-} from '../sw-components'
 
 import './App.css'
 
 export default class App extends Component {
 
   state = {
-    showRandomPlanet: true,
-    swapiService: new DummySwapiService()
+    swapiService: new SwapiService()
   }
 
   onServiceChange = () => [
@@ -40,14 +26,6 @@ export default class App extends Component {
     })
   ]
 
-  toggleRandomPlanet = () => {
-    this.setState((state) => {
-      return {
-        showRandomPlanet: !state.showRandomPlanet
-      }
-    })
-  }
-
   render() {
 
     return (
@@ -55,16 +33,10 @@ export default class App extends Component {
         <div className="app-container">
           <Header onServiceChange={this.onServiceChange} />
 
-          <PersonDetails itemId={11} />
-          <PlanetDetails itemId={5} />
-          <StarshipDetails itemId={5} />
-
-          <PersonList />
-
-          <PlanetList />
-
-          <StarshipList />
-
+          <RandomPlanet />
+          <PeoplePage />
+          <PlanetPage />
+          <StarshipPage />
         </div>
       </SwapiServiceProvider>
     )
