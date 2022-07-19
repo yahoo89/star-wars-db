@@ -13,7 +13,7 @@ export default class PlanetPage extends Component {
   }
 
   render() {
-    const { selectedItem } = this.state;
+    const { selectedItem } = this.state
     return (
       <Row
         left={<PlanetList onItemSelected={this.onItemSelected} />}

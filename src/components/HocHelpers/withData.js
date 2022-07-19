@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
+import Spinner from '../Spinner/Spinner'
+import ErrorIndicator from '../ErrorIndicator/ErrorIndicator'
 
-import Spinner from '../Spinner/Spinner';
 
 
 const withData = (View) => {
@@ -23,7 +23,7 @@ const withData = (View) => {
       }
     }
 
-    update = () => {
+    update() {
       this.setState({
         loading: true,
         error: false
